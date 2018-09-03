@@ -1,0 +1,23 @@
+{
+  "name": "github_avatar_downloader",
+  "version": "1.0.0",
+  "description": "Github Avatar Downloader project",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/AllegroFox/github-avatar-downloader.git"
+  },
+  "keywords": [],
+  "author": "Emily McMinn",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/AllegroFox/github-avatar-downloader/issues"
+  },
+  "homepage": "https://github.com/AllegroFox/github-avatar-downloader#readme",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}
