@@ -4,6 +4,8 @@ const fs = require('fs');
 
 console.log('Welcome to the GitHub Avatar Downloader!');
 
+
+//main function; creates the url to be visited
 function getRepoContributors(repoOwner, repoName, cb) {
 
 
@@ -15,6 +17,8 @@ function getRepoContributors(repoOwner, repoName, cb) {
       }
     };
 
+
+//makes the request, parses the result into a JSON object, & passes that object to the callback function
     request(options, function(err, res, body) {
 
         const info = JSON.parse(body)
@@ -23,6 +27,8 @@ function getRepoContributors(repoOwner, repoName, cb) {
     });
   }
 
+
+//callback function; loops over the JSON object and runs downloadImageByURL on each key
   function output(err, info) {
 
     info.forEach(function(user){
@@ -33,6 +39,8 @@ function getRepoContributors(repoOwner, repoName, cb) {
     })
   }
 
+
+//downloads each file and writes it to the local directory
   function downloadImageByURL(url, filePath) {
 
     request.get(url)
@@ -56,10 +64,11 @@ function getRepoContributors(repoOwner, repoName, cb) {
        .pipe(fs.createWriteStream(filePath));
 }
 
-
+//takes user input
 const owner = process.argv[2];
 const repo = process.argv[3];
 
+//if loop to verify that input exists
 if (owner && repo) {
   getRepoContributors(owner, repo, output);
 } else {
