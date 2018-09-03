@@ -23,7 +23,10 @@ function getRepoContributors(repoOwner, repoName, cb) {
 
 function output(err, info) {
   info.forEach(function(user){
-    console.log(user.avatar_url);
+    let url = user.avatar_url;
+    let filePath = `avatars/${user.login}.jpg`
+
+    downloadImageByURL(url, filePath);
   })
 }
 
@@ -52,5 +55,4 @@ function downloadImageByURL(url, filePath) {
 
 }
 
-downloadImageByURL("https://avatars2.githubusercontent.com/u/2741?v=3&s=466", "avatars/kvirani.jpg");
 getRepoContributors("jquery", "jquery", output);
